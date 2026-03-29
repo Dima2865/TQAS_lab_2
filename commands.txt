@@ -1,0 +1,20 @@
+uvicorn app.main:app --reload
+
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/docs
+
+rm -rf alembic/versions/*
+alembic revision --autogenerate -m "init"
+alembic upgrade head
+
+pip install 'pydantic[email]'
+
+
+добавить тесты с негативными сценариями
+
+и вообще переписать тесты
+написать функцию где не пройдет тест, потом переделать функцию и сделать ей минимальный функционал,
+чтоб она прола тест и потом рефакторинг
+
+pytest tests_bdd/features/students.feature
+pytest -v tests_bdd/features/students.feature
