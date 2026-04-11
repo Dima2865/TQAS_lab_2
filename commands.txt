@@ -7,14 +7,17 @@ rm -rf alembic/versions/*
 alembic revision --autogenerate -m "init"
 alembic upgrade head
 
-pip install 'pydantic[email]'
-
 
 добавить тесты с негативными сценариями
 
 и вообще переписать тесты
 написать функцию где не пройдет тест, потом переделать функцию и сделать ей минимальный функционал,
-чтоб она прола тест и потом рефакторинг
+чтоб она прошла тест и потом рефакторинг
 
-pytest tests_bdd/features/students.feature
-pytest -v tests_bdd/features/students.feature
+
+set DATABASE_URL="postgresql+asyncpg://postgres:postgres@localhost:5432/test_student_bdd"
+set SECRET_KEY="BHmmwDMkJbMscV-nja5w7WdjOurRE5DNmvco2078F3k"
+
+python -m behave tests_bdd/features/scores.feature
+python -m behave tests_bdd/features/students.feature
+python -m behave tests_bdd/features/subjects.feature

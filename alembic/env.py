@@ -11,7 +11,6 @@ from alembic import context
 from app.core.database import Base
 from app.models import Student, Subject, Score  # импортируем модели
 
-
 sys.path.append(str(Path(__file__).parent.parent))
 
 target_metadata = Base.metadata
