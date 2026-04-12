@@ -15,9 +15,13 @@ alembic upgrade head
 чтоб она прошла тест и потом рефакторинг
 
 
-set DATABASE_URL="postgresql+asyncpg://postgres:postgres@localhost:5432/test_student_bdd"
+set DATABASE_URL="postgresql+asyncpg://postgres:postgres@localhost:5432/test_bdd_db"
 set SECRET_KEY="BHmmwDMkJbMscV-nja5w7WdjOurRE5DNmvco2078F3k"
 
-python -m behave tests_bdd/features/scores.feature
-python -m behave tests_bdd/features/students.feature
-python -m behave tests_bdd/features/subjects.feature
+
+behave -n "создание студента с дублирующимся email"
+behave -n "получение несуществующего студента"
+behave -n "создание дисциплины с дублирующимся названием"
+behave -n "получение несуществующей дисциплины"
+behave -n "создание дублирующейся оценки"
+behave -n "получение несуществующей оценки"

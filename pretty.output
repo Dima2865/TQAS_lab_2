@@ -1,0 +1,19 @@
+@negative @grade
+Функционал: Негативные тесты для оценок # tests_bdd/features/grade_negative.feature:3
+@negative @student
+Функционал: Негативные тесты для студентов # tests_bdd/features/student_negative.feature:3
+
+  Сценарий: создание студента с дублирующимся email                      # tests_bdd/features/student_negative.feature:5
+    Дано существует студент с email "duplicate@test.com"                 # tests_bdd/features/steps/negative_steps.py:11
+      ASSERT FAILED:
+
+    Когда я пытаюсь создать студента с тем же email "duplicate@test.com" # None
+    Тогда я получаю ошибку 400                                           # None
+    И сообщение об ошибке содержит "email уже существует"                # None
+----
+CAPTURED LOG: scenario
+LOG_INFO:httpx: HTTP Request: POST http://127.0.0.1:8000/students "HTTP/1.1 404 Not Found"
+---- CAPTURED_SCENARIO_OUTPUT_END ----
+
+@negative @subject
+Функционал: Негативные тесты для дисциплин # tests_bdd/features/subject_negative.feature:3

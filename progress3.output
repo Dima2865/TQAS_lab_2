@@ -1,0 +1,5 @@
+Негативные тесты для оценок    # tests_bdd/features/score_negative.feature
+  получение несуществующей оценки  ...
+
+Негативные тесты для студентов    # tests_bdd/features/student_negative.feature
+Негативные тесты для дисциплин    # tests_bdd/features/subject_negative.feature
